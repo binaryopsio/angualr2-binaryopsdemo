@@ -1,0 +1,42 @@
+<p>
+Here is the list of blogs in the demo blog app. Click
+on one to see the posts.
+click on the posts to see the details and commments.
+You can add edit and delete comments.
+</p>
+
+<div class="row">
+<div class="col-md-12 "> Select Blog
+  <select class="blogselect" [(ngModel)]="_selectedBlogID" (ngModelChange)="selectBlog($event)">
+                  <option *ngFor="#blog of _blogs" [value]="blog._id" >{{blog.title}} </option>
+              </select>
+</div>
+
+<hr>
+    <div class="col-md-12 postlist" *ngFor="#post of _posts">
+    <button class="btn btn-primary" (click)="onSelectPost(post)">Select</button>
+          {{post.title}}
+        </div>
+</div>
+<div class="row">
+  <div class="col-md-6 selectedPost">
+    <h3>{{_selectedPost.title}}</h3>
+    <p>
+      {{_selectedPost.postcontent}}
+    </p>
+  </div>
+      <div class="col-md-6">
+        <div>
+        <h3>Comments</h3>
+        <input type="text" class="form-control" name="new comment" placeholder="Add a comment" required  [(ngModel)]="_newComment"  />
+        <button class="btn" (click)="addComment()">Add</button>
+        <ul>
+          <li *ngFor="#comment of _selectedPost.postid_comment">
+                {{comment.content}} <button class="btn btn-md btn-primary"  (click)="deleteOneComment(comment)">Delete</button>
+              </li>
+        </ul>
+
+      </div>
+      </div>
+
+</div>
