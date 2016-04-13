@@ -1,7 +1,10 @@
 import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
 import {BinaryopsService} from  'angular2-binaryops/client';
-import {Router}              from 'angular2/router';
+import {Router} from 'angular2/router';
+
+// sidestep an error where module is not locally defined.
+var module: any = module || {id: 'dummy'};
 
 @Component({
   selector: 'bos-login',
@@ -10,6 +13,7 @@ import {Router}              from 'angular2/router';
   styleUrls: ['./login.component.css'],
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES]
 })
+
 export class LoginComponent {
   username: string;
   password: string;
@@ -28,12 +32,10 @@ export class LoginComponent {
     console.log('Going to login');
     this._binaryopsService.login(this.username, this.password).subscribe(
         data => {
-        console.log('Login OK');
-        //this.nav.push(BlogListPage, {});
-        this._router.navigate(['Home', {}]);
-      },
+            console.log('Login OK');
+            this._router.navigate(['Home', {}]);
+          },
       err => {
-
         console.log('Login Error: ' + err);
       },
       () => console.log('Login complete')

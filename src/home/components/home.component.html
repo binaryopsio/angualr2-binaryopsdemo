@@ -1,42 +1,66 @@
+<div class="container">
 <p>
-Here is the list of blogs in the demo blog app. Click
-on one to see the posts.
-click on the posts to see the details and commments.
-You can add edit and delete comments.
+Here is the list of blogs in the demo blog app. Click on one to see the posts.
+Click on the posts to see the details and comments.
+You can add, edit and delete comments.
 </p>
 
-<div class="row">
-<div class="col-md-12 "> Select Blog
-  <select class="blogselect" [(ngModel)]="_selectedBlogID" (ngModelChange)="selectBlog($event)">
-                  <option *ngFor="#blog of _blogs" [value]="blog._id" >{{blog.title}} </option>
-              </select>
-</div>
+<div role="form" class="row form-horizontal">
 
-<hr>
-    <div class="col-md-12 postlist" *ngFor="#post of _posts">
-    <button class="btn btn-primary" (click)="onSelectPost(post)">Select</button>
-          {{post.title}}
+    <div class="form-group">
+        <div class="col-md-2"><label for="blogselect">Select Blog</label></div>
+        <div class="col-md-10">
+            <select id="blogselect" class="form-control" [(ngModel)]="_selectedBlogID" (ngModelChange)="selectBlog($event)">
+                <option *ngFor="#blog of _blogs" [value]="blog._id" >{{blog.title}} </option>
+            </select>
         </div>
-</div>
+    </div>
+
+    <!--
+    <alert type="info">Hello from ng2-bootstrap</alert>
+    -->
+
+    <div class="form-group">
+        <div class="col-md-2"><label for="blogposts">Blog Posts</label></div>
+        <div class="col-md-10">
+            <ul id="blogposts" class="listgroup" style="-webkit-padding-start: 0;">
+                <li class="list-group-item" *ngFor="#post of _posts" [class.active]="post.isSelected" (click)="onSelectPost(post)">
+                        {{post.title}}
+                        <span class="label label-default label-pill pull-right">{{post.postid_comment.length}} comments</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div> <!-- end row -->
+
 <div class="row">
-  <div class="col-md-6 selectedPost">
-    <h3>{{_selectedPost.title}}</h3>
-    <p>
-      {{_selectedPost.postcontent}}
-    </p>
-  </div>
-      <div class="col-md-6">
-        <div>
-        <h3>Comments</h3>
-        <input type="text" class="form-control" name="new comment" placeholder="Add a comment" required  [(ngModel)]="_newComment"  />
-        <button class="btn" (click)="addComment()">Add</button>
-        <ul>
-          <li *ngFor="#comment of _selectedPost.postid_comment">
-                {{comment.content}} <button class="btn btn-md btn-primary"  (click)="deleteOneComment(comment)">Delete</button>
-              </li>
-        </ul>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{_selectedPost.title}}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-6">
+                <p>{{_selectedPost.postcontent}}</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Comments</h3>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="new comment" placeholder="Add a comment" required [(ngModel)]="_newComment"  />
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" (click)="addComment()">Add</button>
+                    </span>
+                </div>
+                <ul class="comments">
+                  <li *ngFor="#comment of _selectedPost.postid_comment.slice().reverse()">
+                        {{comment.content}}
+                        <span class="glyphicon glyphicon-remove pull-right" (click)="deleteOneComment(comment)"></span>
+                      </li>
+                </ul>
+              </div>
+        </div>
+    </div>
 
-      </div>
-      </div>
 
 </div>
+
+</div> <!-- end container -->

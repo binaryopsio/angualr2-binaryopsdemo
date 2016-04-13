@@ -1,5 +1,6 @@
 import {provide, enableProdMode} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
+// import {Ng2BootstrapConfig, Ng2BootstrapTheme} from 'ng2-bootstrap';
 import {ROUTER_PROVIDERS, APP_BASE_HREF} from 'angular2/router';
 import {AppComponent} from './app/components/app.component';
 

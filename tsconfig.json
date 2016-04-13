@@ -8,7 +8,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "pretty": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "noImplicitAny": true,

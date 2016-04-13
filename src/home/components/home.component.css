@@ -4,54 +4,21 @@
   padding: 0 16px;
 }
 
-input {
-  width: 250px;
-}
 
-.postlist {
-  background-color: rgb(173, 181, 178);
-  border-style: solid;
-  border-bottom: 2px solid #333131;
-  padding-top: 2px;
-  padding-bottom: 2px;
+ul.comments {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 0 0 0;
 }
-
-.selectedPost {
-  background-color: rgb(173, 181, 178);
+ul.comments li {
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
 }
-
-blogrow {
-  width: 100%;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #fefefe;
+ul.comments li:last-child {
+  border: none;
 }
-.blogselect {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -webkit-padding-end: 20px;
-    -moz-padding-end: 20px;
-    -webkit-padding-start: 2px;
-    -moz-padding-start: 2px;
-    background-color: #F07575; /* fallback color if gradients are not supported */
-    background-image: url(assets/select-arrow.png), -webkit-linear-gradient(top, #E5E5E5, #F4F4F4); /* For Chrome and Safari */
-    background-image: url(assets/select-arrow.png), -moz-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Fx (3.6 to 15) */
-    background-image: url(assets/select-arrow.png), -ms-linear-gradient(top, #E5E5E5, #F4F4F4); /* For pre-releases of IE 10*/
-    background-image: url(assets/select-arrow.png), -o-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Opera (11.1 to 12.0) */
-    background-image: url(assets/select-arrow.png), linear-gradient(to bottom, #E5E5E5, #F4F4F4); /* Standard syntax; must be last */
-    background-position: center right;
-    background-repeat: no-repeat;
-    border: 1px solid #AAA;
-    border-radius: 2px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-    color: #555;
-    font-size: inherit;
-    margin: 0;
-    overflow: hidden;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+ul.comments li a {
+  text-decoration: none;
+  color: #000;
+  display: block;
 }
