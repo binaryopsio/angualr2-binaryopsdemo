@@ -1,10 +1,7 @@
-
 :host {
   display: block;
   padding: 0 16px;
 }
-
-
 ul.comments {
   list-style-type: none;
   margin: 0;
