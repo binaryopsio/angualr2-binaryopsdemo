@@ -14,6 +14,8 @@ export class ProjectConfig extends SeedConfig {
        {src: 'ng2-bootstrap/bundles/ng2-bootstrap.min.js', inject: 'libs'},
     ];
 
+    this.APP_TITLE = 'Binaryops Demo Blog';
+
     const seedDependencies = this.NPM_DEPENDENCIES;
 
     this.NPM_DEPENDENCIES = seedDependencies.concat(additional_deps);
