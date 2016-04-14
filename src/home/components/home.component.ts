@@ -57,7 +57,13 @@ export class HomeComponent {
 
   selectBlog(event: any) {
     this._binaryopsService.searchDocs('post', '_connect=comment.postid&blogid=' + this._selectedBlogID).subscribe(
-      data => {this._posts = data.data;
+      data => { //we're not returning an empty array when there are no comments. We should! 
+              let posts = data.data;
+              let p: any;
+              for (p of posts) {
+                p.postid_comment = p.postid_comment || [];
+              }
+              this._posts = posts;
                 if (this._posts.length > 0) {
                     this.onSelectPost(this._posts[0]);
                 }
