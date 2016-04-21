@@ -11,7 +11,8 @@ export class ProjectConfig extends SeedConfig {
     // this.APP_TITLE = 'Put name of your app here';
     let additional_deps: InjectableDependency[] = [
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
-       {src: 'ng2-bootstrap/bundles/ng2-bootstrap.min.js', inject: 'libs'},
+      //  {src: 'ng2-bootstrap/bundles/ng2-bootstrap.min.js', inject: 'libs'},
+      //  {src: 'angular2-binaryops/client.js', inject: 'libs'},
     ];
 
     this.APP_TITLE = 'Binaryops Demo Blog';

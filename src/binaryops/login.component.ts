@@ -5,13 +5,13 @@ import {Router} from 'angular2/router';
 import {Alert} from 'ng2-bootstrap/ng2-bootstrap';
 
 // sidestep an error where module is not locally defined.
-var module: any = module || {id: 'dummy'};
+//var module: any = module || {id: 'dummy'};
 
 @Component({
   selector: 'bos-login',
-  moduleId: module.id,
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  //moduleId: module.id,
+  templateUrl: 'binaryops/login.component.html',
+  styleUrls: ['binaryops/login.component.css'],
   directives: [Alert, FORM_DIRECTIVES, CORE_DIRECTIVES]
 })
 

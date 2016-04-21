@@ -3,12 +3,14 @@ import {bootstrap} from 'angular2/platform/browser';
 // import {Ng2BootstrapConfig, Ng2BootstrapTheme} from 'ng2-bootstrap';
 import {ROUTER_PROVIDERS, APP_BASE_HREF} from 'angular2/router';
 import {AppComponent} from './app/components/app.component';
+import { BINARYOPS_CLIENT_PROVIDERS} from 'angular2-binaryops/client';
 
 if ('<%= ENV %>' === 'prod') { enableProdMode(); }
 
 bootstrap(AppComponent, [
   ROUTER_PROVIDERS,
-  provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' })
+  provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' }),
+  BINARYOPS_CLIENT_PROVIDERS
 ]);
 
 // In order to start the Service Worker located at "./sw.js"

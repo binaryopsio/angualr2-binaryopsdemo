@@ -28,6 +28,9 @@ module.exports = function(config) {
       'node_modules/reflect-metadata/Reflect.js',
       // beta.7 IE 11 polyfills from https://github.com/angular/angular/issues/7144
       'node_modules/angular2/es6/dev/src/testing/shims_for_IE.js',
+    //  'node_modules/angular2-binaryops/client.js',
+    //  'node_modules/ng2-bootstrap/ng2-bootstrap.js',
+
 
       { pattern: 'node_modules/angular2/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },

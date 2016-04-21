@@ -17,13 +17,13 @@ interface Post {
 }
 
 // sidestep an error where module is not locally defined.
-var module: any = module || {id: 'dummy'};
+//var module: any = module || {id: 'dummy'};
 
 @Component({
   selector: 'sd-home',
-  moduleId: module.id,
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  //moduleId: module.id,
+  templateUrl: 'home/components/home.component.html',
+  styleUrls: ['home/components/home.component.css'],
   directives: [ Alert, FORM_DIRECTIVES, CORE_DIRECTIVES]
 })
 
@@ -57,7 +57,7 @@ export class HomeComponent {
 
   selectBlog(event: any) {
     this._binaryopsService.searchDocs('post', '_connect=comment.postid&blogid=' + this._selectedBlogID).subscribe(
-      data => { //we're not returning an empty array when there are no comments. We should! 
+      data => { //we're not returning an empty array when there are no comments. We should!
               let posts = data.data;
               let p: any;
               for (p of posts) {
