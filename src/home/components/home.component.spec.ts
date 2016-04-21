@@ -1,5 +1,6 @@
 import {
   TestComponentBuilder,
+  beforeEachProviders,
   describe,
   expect,
   injectAsync,
@@ -9,10 +10,17 @@ import {Component} from 'angular2/core';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 import {HomeComponent} from './home.component';
 import {NameListService} from '../../shared/services/name-list.service';
+import {BINARYOPS_CLIENT_PROVIDERS} from  'angular2-binaryops/client';
 
 
 export function main() {
   describe('Home component', () => {
+
+    beforeEachProviders(()=> [
+         BINARYOPS_CLIENT_PROVIDERS //if you don't need to mock
+         //,provide(ConfigService, {useClass:MockConfigService}) // more typical
+     ]);
+
     it('should work',
       injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
         return tcb.createAsync(TestComponent)

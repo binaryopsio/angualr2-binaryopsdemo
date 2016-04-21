@@ -24,6 +24,10 @@ System.config({
   paths: {
     'angular2/*': 'node_modules/angular2/*.js',
     'rxjs/*': 'node_modules/rxjs/*.js'
+    //Added paths for new dependencies in the project, also see karma.conf.js
+    ,'angular2-binaryops/*': 'node_modules/angular2-binaryops/*.js'
+    ,'ng2-bootstrap/*': 'node_modules/ng2-bootstrap/*.js'
+    ,'moment': 'node_modules/moment/moment.js'
   }
 });
 

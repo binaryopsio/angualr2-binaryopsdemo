@@ -37,6 +37,11 @@ module.exports = function(config) {
       { pattern: 'dist/dev/**/*.js', included: false, watched: true },
       { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it
 
+//Added patterns for new dependencies in the project, also see test-main.js
+      { pattern: 'node_modules/angular2-binaryops/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/moment/moment.js', included: false, watched: false },
+      { pattern: 'node_modules/ng2-bootstrap/**/*.js', included: false, watched: false },
+
       'test-main.js'
     ],
 
@@ -109,6 +114,8 @@ module.exports = function(config) {
       files: argv.files
     }
   });
+
+  config.browserNoActivityTimeout = 20000;
 
   if (process.env.APPVEYOR) {
     config.browsers = ['IE'];
