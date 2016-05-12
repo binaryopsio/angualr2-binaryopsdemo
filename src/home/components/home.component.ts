@@ -12,7 +12,7 @@ interface PostComment {
 interface Post {
     _id: string;
     title: string;
-    postid_comment: Array<PostComment>;
+    comment_postid: Array<PostComment>;
     isSelected: boolean;
 }
 
@@ -38,7 +38,7 @@ export class HomeComponent {
 
   constructor( binaryopsService: BinaryopsService) {
     this._binaryopsService = binaryopsService;
-    this._selectedPost = {_id:'', title:'', postid_comment:[], isSelected: false};
+    this._selectedPost = {_id:'', title:'', comment_postid:[], isSelected: false};
   }
 
   ngOnInit() {
@@ -86,7 +86,7 @@ export class HomeComponent {
 
           this._binaryopsService.insert('comment', inscmt).subscribe(
               data => {console.log(data);
-                  this._selectedPost.postid_comment.push(data);
+                  this._selectedPost.comment_postid.push(data);
               },
               err => console.log('Error: ' + JSON.stringify(err)),
               () => {this._newComment = undefined;}
@@ -97,8 +97,8 @@ export class HomeComponent {
     this._binaryopsService.delete('comment', cmt).subscribe(
       data => {
          console.log(JSON.stringify(data));
-         let i = this._selectedPost.postid_comment.indexOf(cmt);
-         this._selectedPost.postid_comment.splice(i, 1);
+         let i = this._selectedPost.comment_postid.indexOf(cmt);
+         this._selectedPost.comment_postid.splice(i, 1);
       },
       err => console.log('Error: ' + err),
       () => console.log('Delete complete')
